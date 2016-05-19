@@ -18,6 +18,11 @@ public class Training {
     private final ObjectProperty<LocalDate> date;
     private final ObjectProperty<ArrayList<Fit>> fits;
 
+    public Training(ObjectProperty<LocalDate> date, ObjectProperty<ArrayList<Fit>> fits) {
+        this.date = date;
+        this.fits = fits;
+    }
+
     public LocalDate getDate() {
         return date.get();
     }
@@ -48,7 +53,7 @@ public class Training {
     }
 
     public Training() {
-        date=null;
+        date=new SimpleObjectProperty<>(LocalDate.now());
         fits=new SimpleObjectProperty<>();
 
     }

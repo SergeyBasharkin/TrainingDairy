@@ -12,15 +12,22 @@ import javafx.fxml.FXML;
 public class Fit {
 
     private final StringProperty name;
-    private final IntegerProperty podhod;
-    private final IntegerProperty povtor;
-    private final IntegerProperty ves;
+    private final IntegerProperty approach;
+    private final IntegerProperty quantity;
+    private final IntegerProperty weight;
 
     public Fit(String name) {
         this.name = new SimpleStringProperty(name);
-        this.podhod=new SimpleIntegerProperty(0);
-        this.povtor=new SimpleIntegerProperty(0);
-        this.ves=new SimpleIntegerProperty(0);
+        this.approach=new SimpleIntegerProperty(0);
+        this.quantity=new SimpleIntegerProperty(0);
+        this.weight= new SimpleIntegerProperty(0);
+    }
+
+    public Fit(String name, Integer approach, Integer quantity, Integer weight) {
+        this.name = new SimpleStringProperty(name);
+        this.approach = new SimpleIntegerProperty(approach);
+        this.quantity = new SimpleIntegerProperty(quantity);
+        this.weight = new SimpleIntegerProperty(weight);
     }
 
     public Fit() {
@@ -41,40 +48,40 @@ public class Fit {
         this.name.set(name);
     }
 
-    public int getPodhod() {
-        return podhod.get();
+    public int getApproach() {
+        return approach.get();
     }
 
-    public IntegerProperty podhodProperty() {
-        return podhod;
+    public IntegerProperty approachProperty() {
+        return approach;
     }
 
-    public void setPodhod(int podhod) {
-        this.podhod.set(podhod);
+    public void setApproach(int approach) {
+        this.approach.set(approach);
     }
 
-    public int getPovtor() {
-        return povtor.get();
+    public int getQuantity() {
+        return quantity.get();
     }
 
-    public IntegerProperty povtorProperty() {
-        return povtor;
+    public IntegerProperty quantityProperty() {
+        return quantity;
     }
 
-    public void setPovtor(int povtor) {
-        this.povtor.set(povtor);
+    public void setQuantity(int quantity) {
+        this.quantity.set(quantity);
     }
 
-    public int getVes() {
-        return ves.get();
+    public int getWeight() {
+        return weight.get();
     }
 
-    public IntegerProperty vesProperty() {
-        return ves;
+    public IntegerProperty weightProperty() {
+        return weight;
     }
 
-    public void setVes(int ves) {
-        this.ves.set(ves);
+    public void setWeight(int weight) {
+        this.weight.set(weight);
     }
 
     @Override

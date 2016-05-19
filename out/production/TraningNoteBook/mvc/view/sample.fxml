@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mvc.view.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mvc.view.Controller">
    <children>
       <TableView fx:id="trainingTable" layoutX="200.0" layoutY="80.0" prefHeight="360.0" prefWidth="600.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columns>
@@ -19,9 +19,9 @@
       </TableView>
       <HBox layoutX="181.0" layoutY="360.0" prefHeight="26.0" prefWidth="248.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" text="Создать" />
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="96.0" text="Детали" />
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="99.0" text="Удалить" />
+            <Button mnemonicParsing="false" onAction="#create" prefHeight="26.0" prefWidth="90.0" text="Создать" />
+            <Button mnemonicParsing="false" onAction="#details" prefHeight="26.0" prefWidth="96.0" text="Детали" />
+            <Button mnemonicParsing="false" onAction="#delete" prefHeight="26.0" prefWidth="99.0" text="Удалить" />
          </children>
       </HBox>
    </children>
