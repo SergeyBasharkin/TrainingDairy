@@ -29,7 +29,7 @@ public class TrainingDetailsController {
     private Main main;
     private Training training;
     private Stage dialogStage;
-
+    private Fit curFit;
     private ObservableList<Fit> fits= FXCollections.observableArrayList();
 
     public void setMainApp(Main main) {
@@ -45,6 +45,7 @@ public class TrainingDetailsController {
         }
     }
 
+
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
     }
@@ -56,6 +57,26 @@ public class TrainingDetailsController {
         weightColumn.setCellValueFactory(c->c.getValue().weightProperty().asObject());
 
         fitTable.setItems(fits);
+    }
+
+    @FXML
+    private void create(){
+        Fit fit=new Fit();
+//        training.setDate(LocalDate.now());
+//        training.setFits(trainingColumn.getCellData(0));
+        main.showFitEditDialog(fit);
+        training.getFits().add(fit);
+        fitTable.getItems().add(fit);
+
+    }
+    @FXML
+    private void update(){
+        Fit fit=fitTable.getSelectionModel().getSelectedItem();
+        int id=fitTable.getSelectionModel().getSelectedIndex();
+
+        main.showFitEditDialog(fit);
+        training.getFits().set(id,fit);
+        fitTable.getItems().set(id,fit);
     }
     @FXML
     private void delete(){
@@ -71,5 +92,9 @@ public class TrainingDetailsController {
 
             alert.showAndWait();
         }
+    }
+
+    public void setFit(Fit fit) {
+        this.curFit = fit;
     }
 }

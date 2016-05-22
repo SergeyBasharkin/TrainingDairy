@@ -24,5 +24,6 @@
             <Button mnemonicParsing="false" onAction="#delete" prefHeight="26.0" prefWidth="99.0" text="Удалить" />
          </children>
       </HBox>
+      <Button layoutY="361.0" mnemonicParsing="false" onAction="#save" text="Save" />
    </children>
 </AnchorPane>

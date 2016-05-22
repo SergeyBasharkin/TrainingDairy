@@ -7,14 +7,17 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 import javafx.scene.input.DataFormat;
+import mvc.util.LocalDateAdapter;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
  * Created by sergey on 18.05.16.
  */
-public class Training {
+public class Training implements Serializable{
     private final ObjectProperty<LocalDate> date;
     private final ObjectProperty<ArrayList<Fit>> fits;
 
@@ -23,6 +26,7 @@ public class Training {
         this.fits = fits;
     }
 
+    @XmlJavaTypeAdapter(LocalDateAdapter.class)
     public LocalDate getDate() {
         return date.get();
     }

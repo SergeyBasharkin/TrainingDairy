@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<trains>
+    <training>
+        <date xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">2016-05-20</date>
+        <fits>
+            <approach>1</approach>
+            <name>1</name>
+            <quantity>1</quantity>
+            <weight>1</weight>
+        </fits>
+        <fits>
+            <approach>2</approach>
+            <name>2</name>
+            <quantity>2</quantity>
+            <weight>2</weight>
+        </fits>
+        <fits>
+            <approach>3</approach>
+            <name>3</name>
+            <quantity>3</quantity>
+            <weight>3</weight>
+        </fits>
+    </training>
+    <training>
+        <date xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">2016-05-21</date>
+        <fits>
+            <approach>1</approach>
+            <name>1</name>
+            <quantity>1</quantity>
+            <weight>1</weight>
+        </fits>
+        <fits>
+            <approach>2</approach>
+            <name>2</name>
+            <quantity>2</quantity>
+            <weight>2</weight>
+        </fits>
+        <fits>
+            <approach>3</approach>
+            <name>3</name>
+            <quantity>3</quantity>
+            <weight>3</weight>
+        </fits>
+        <fits>
+            <approach>5</approach>
+            <name>5</name>
+            <quantity>5</quantity>
+            <weight>5</weight>
+        </fits>
+    </training>
+</trains>

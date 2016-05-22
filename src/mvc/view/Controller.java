@@ -11,6 +11,8 @@ import mvc.models.Fit;
 import mvc.models.Training;
 import mvc.util.Helper;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -31,6 +33,7 @@ public class Controller {
         this.main = main;
 
         // Добавление в таблицу данных из наблюдаемого списка
+        trainingTable.setItems(main.getTrainsData());
     }
 
     @FXML
@@ -38,7 +41,6 @@ public class Controller {
         dateColumn.setCellValueFactory(c->c.getValue().dateProperty());
         trainingColumn.setCellValueFactory(c->c.getValue().fitsProperty());
 
-        Helper.setData(list);
         trainingTable.setItems(list);
 
     }
@@ -48,6 +50,13 @@ public class Controller {
         int selectedIndex=trainingTable.getSelectionModel().getSelectedIndex();
         if (selectedIndex>=0) {
             trainingTable.getItems().remove(selectedIndex);
+            try {
+                for (int i = 0; i <trainingTable.getItems().size() ; i++) {
+                    Helper.write(trainingTable.getItems().get(i));
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }else {
             getAlert("No selection","No Traning Selected","Please select a person in the table");
         }
@@ -59,7 +68,6 @@ public class Controller {
 //        training.setFits(trainingColumn.getCellData(0));
         main.showPersonEditDialog(training);
         trainingTable.getItems().add(training);
-
     }
 
     private void getAlert(String title,String header,String content){
@@ -78,9 +86,34 @@ public class Controller {
         if (id>=0) {
             main.showDetailsDialog(training);
             trainingTable.getItems().set(id,training);
+            try {
+                for (int i = 0; i <trainingTable.getItems().size() ; i++) {
+                    Helper.write(trainingTable.getItems().get(i));
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }else {
 
             getAlert("No selection","No Traning Selected","Please select a person in the table");
         }
     }
+    @FXML
+    private void save(){
+        File file=main.getTrainsFilePath();
+        if (file!=null){
+            main.saveTrainsDataToFile(file);
+        }else {
+            file=new File("trainings.xml");
+            if (!file.exists()){
+                try {
+                    file.createNewFile();
+                    main.saveTrainsDataToFile(file);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }else main.saveTrainsDataToFile(file);
+        }
+    }
+
 }

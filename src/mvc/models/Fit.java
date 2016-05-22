@@ -6,10 +6,12 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 
+import java.io.Serializable;
+
 /**
  * Created by sergey on 18.05.16.
  */
-public class Fit {
+public class Fit implements Serializable {
 
     private final StringProperty name;
     private final IntegerProperty approach;
